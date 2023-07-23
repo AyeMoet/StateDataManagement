@@ -6,9 +6,11 @@ import android.view.WindowManager
 import android.view.Window
 
 import android.os.Build
+import com.am.statedatamanagement.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -18,14 +20,15 @@ class MainActivity : AppCompatActivity() {
 //                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 //            )
 //        }
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         listener()
     }
 
     private fun listener() {
-        btn_new_account.setOnClickListener {
+        binding.btnNewAccount.setOnClickListener {
             startActivity(
-                SignUpActivity.newInent(this)
+                SignUpActivity.newInent(this@MainActivity)
             )
         }
     }

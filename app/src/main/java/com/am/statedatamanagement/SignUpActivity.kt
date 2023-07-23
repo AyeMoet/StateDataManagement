@@ -11,11 +11,13 @@ import android.widget.DatePicker
 
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
+import com.am.statedatamanagement.databinding.ActivitySignUpBinding
 import com.google.firebase.firestore.util.Util
 import java.util.*
 
 
 class SignUpActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySignUpBinding
     private lateinit var picker: DatePickerDialog
     private var gender: String = ""
     companion object {
@@ -25,52 +27,55 @@ class SignUpActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         listener()
     }
 
     private fun listener() {
-        iv_back.setOnClickListener {
-            onBackPressed()
-        }
-
-        btn_male.setOnClickListener {
-            btn_female.setBackgroundColor(resources.getColor(R.color.gray_background_color))
-            btn_male.setBackgroundResource(R.drawable.border_background)
-            gender = btn_male.text.toString()
-        }
-
-        btn_female.setOnClickListener {
-            btn_male.setBackgroundColor(resources.getColor(R.color.gray_background_color))
-            btn_female.setBackgroundResource(R.drawable.border_background)
-            gender = btn_female.text.toString()
-        }
-
-        btn_new_account.setOnClickListener {
-            if (checkValidation()) {
-                Toast.makeText(this, "Account create successfully\n You can move on next step.\n ${et_firstName.text.toString()}\n" +
-                        " ${et_lastName.text.toString()}\n ${et_emailAddress.text.toString()}\n ${et_dob.text.toString()}\n $gender \n ${et_nationality.text.toString()} \n ${et_countryOfResident.text.toString()}\n ${et_mobile.text.toString()}",Toast.LENGTH_LONG).show()
+        binding.apply {
+            ivBack.setOnClickListener {
+                onBackPressed()
             }
-        }
 
-        et_dob.setOnClickListener {
-            val cldr: Calendar = Calendar.getInstance()
-            val day: Int = cldr.get(Calendar.DAY_OF_MONTH)
-            val month: Int = cldr.get(Calendar.MONTH)
-            val year: Int = cldr.get(Calendar.YEAR)
-            // date picker dialog
-            // date picker dialog
-            picker = DatePickerDialog(this,
-                { view, year, monthOfYear, dayOfMonth -> et_dob.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year) },
-                year,
-                month,
-                day
-            )
-            picker.show()
-        }
+            btnMale.setOnClickListener {
+                btnFemale.setBackgroundColor(resources.getColor(R.color.gray_background_color))
+                btnMale.setBackgroundResource(R.drawable.border_background)
+                gender = btnMale.text.toString()
+            }
 
-        et_emailAddress.setOnClickListener {
-            isValidateEmail(et_emailAddress.text.toString())
+            btnFemale.setOnClickListener {
+                btnMale.setBackgroundColor(resources.getColor(R.color.gray_background_color))
+                btnFemale.setBackgroundResource(R.drawable.border_background)
+                gender = btnFemale.text.toString()
+            }
+
+            btnNewAccount.setOnClickListener {
+                if (checkValidation()) {
+                    Toast.makeText(this@SignUpActivity, "Account create successfully\n You can move on next step.\n ${etFirstName.text.toString()}\n" +
+                            " ${etLastName.text.toString()}\n ${etEmailAddress.text.toString()}\n ${etDob.text.toString()}\n $gender \n ${etNationality.text.toString()} \n ${etCountryOfResident.text.toString()}\n ${et_mobile.text.toString()}",Toast.LENGTH_LONG).show()
+                }
+            }
+
+            etDob.setOnClickListener {
+                val cldr: Calendar = Calendar.getInstance()
+                val day: Int = cldr.get(Calendar.DAY_OF_MONTH)
+                val month: Int = cldr.get(Calendar.MONTH)
+                val year: Int = cldr.get(Calendar.YEAR)
+                // date picker dialog
+                // date picker dialog
+                picker = DatePickerDialog(this@SignUpActivity,
+                    { view, year, monthOfYear, dayOfMonth -> etDob.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year) },
+                    year,
+                    month,
+                    day
+                )
+                picker.show()
+            }
+
+            etEmailAddress.setOnClickListener {
+                isValidateEmail(etEmailAddress.text.toString())
+            }
         }
     }
 
@@ -79,9 +84,9 @@ class SignUpActivity : AppCompatActivity() {
         try {
             b = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
             if (b == false) {
-                et_emailAddress.error = "Email Address is Invalid"
+                binding.etEmailAddress.error = "Email Address is Invalid"
             } else if (b == true) {
-                et_emailAddress.error = "Email Address is Valid"
+                binding.etEmailAddress.error = "Email Address is Valid"
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -93,32 +98,34 @@ class SignUpActivity : AppCompatActivity() {
 
 
     private fun checkValidation(): Boolean {
-        if (et_firstName.text.length < 0) {
-            et_firstName.error = "Please fill First Name"
-            return false
-        }
-        if (et_lastName.text.length < 0) {
-            et_lastName.error = "Please fill last Name"
-            return false
-        }
-        if (et_emailAddress.text.length < 0) {
-            et_emailAddress.error = "Please fill Email Address"
-            return false
-        } else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(et_emailAddress.text.toString()).matches()) {
-            et_emailAddress.error = "Please check your email address and Please try again."
-            return false
-        }
-        if (et_dob.text.length < 0) {
-            et_dob.error = "Please fill Date of Birth"
-            return false
-        }
-        if (et_nationality.text.length < 0) {
-            et_nationality.error = "Please fill Nationality"
-            return false
-        }
-        if (et_countryOfResident.text.length < 0) {
-            et_countryOfResident.error = "Please fill Country Of Resident"
-            return false
+        binding.apply {
+            if (etFirstName.text.length < 0) {
+                etFirstName.error = "Please fill First Name"
+                return false
+            }
+            if (etLastName.text.length < 0) {
+                etLastName.error = "Please fill last Name"
+                return false
+            }
+            if (etEmailAddress.text.length < 0) {
+                etEmailAddress.error = "Please fill Email Address"
+                return false
+            } else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(etEmailAddress.text.toString()).matches()) {
+                etEmailAddress.error = "Please check your email address and Please try again."
+                return false
+            }
+            if (etDob.text.length < 0) {
+                etDob.error = "Please fill Date of Birth"
+                return false
+            }
+            if (etNationality.text.length < 0) {
+                etNationality.error = "Please fill Nationality"
+                return false
+            }
+            if (etCountryOfResident.text.length < 0) {
+                etCountryOfResident.error = "Please fill Country Of Resident"
+                return false
+            }
         }
         return true
     }
