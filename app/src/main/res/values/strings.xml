@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">StateDataManagement</string>
+    <string name="welcome_to_ready_to_travel">Welcome To\n Ready To Travel</string>
+    <string name="sign_up_with_facebook_with_the_most_fulfilling_trip_planning_experience_with_us">Sign up with Facebook with the most\n fulfilling trip planning experience with us!</string>
+    <string name="log_in_with_facebook">Log in with Facebook</string>
+    <string name="log_in_with_email_address">Log in with email address</string>
+    <string name="almost_there">Almost there!</string>
+    <string name="complete_the_form_below_to_create_nyour_ready_to_travel_account">Complete the form below to create \nyour Ready to travel account.</string>
+    <string name="mondatory">*Mondatory</string>
+    <string name="first_name">First Name *</string>
+    <string name="last_name">Last Name *</string>
+    <string name="email_address">Email Address *</string>
+    <string name="country_of_residence">Country Of Residence *</string>
+    <string name="nationality">Nationality *</string>
+    <string name="date_of_birth">Date of Birth *</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+</resources>

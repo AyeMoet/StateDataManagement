@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_left">15dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
+    <dimen name="button_height">55dp</dimen>
+    <dimen name="bg_conor_radius">15dp</dimen>
+    <dimen name="value_text_size">14sp</dimen>
+    <dimen name="title_text_size">12sp</dimen>
+    <dimen name="image_margin_top">45dp</dimen>
+    <dimen name="drawable_padding">15dp</dimen>
+    <dimen name="value_margin">10dp</dimen>
+</resources>

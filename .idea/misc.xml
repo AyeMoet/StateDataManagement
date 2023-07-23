@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable-v24/border_background.xml" value="0.2703125" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable-v24/button__background.xml" value="0.14635416666666667" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable-v24/button_background.xml" value="0.14635416666666667" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable-v24/clear_border_background.xml" value="0.2703125" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable-v24/dob_background.xml" value="0.2703125" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable/border_background.xml" value="0.2703125" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable/button__background.xml" value="0.14635416666666667" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable/button_background.xml" value="0.14635416666666667" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable/button_create_account_background.xml" value="0.23645833333333333" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable/clear_border_background.xml" value="0.2703125" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/drawable/dob_background.xml" value="0.2703125" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/font/font.xml" value="0.16041666666666668" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/layout/activity_main.xml" value="0.536" />
+        <entry key="..\:/StateDataManagement/app/src/main/res/layout/activity_sign_up.xml" value="0.42397914856646396" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2716836434823495" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.536" />
+      </ProjectState>
+    </option>
+  </component>
+</project>
